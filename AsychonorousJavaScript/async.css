@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+padding: 0px;
+margin: 0px;
+}
+
+div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    padding: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border: 3px solid black;
+        font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+min-width: 20%;
+font-size: 1.2rem;
+border-radius: 20px;
+cursor: pointer;
+}

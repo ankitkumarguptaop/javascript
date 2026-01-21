@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+#HH2{
+    padding: 10px;
+    height: 10vh;
+    width: 50vh;
+    border-radius: 1rem;
+    background-color: #333;
+    text-align: center;
+    color: aliceblue; 
+}
+#btn{
+    padding: 1rem ,2rem;
+    height: 10vh;
+    min-width: 15vw;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 20px;
+    font-size:1.1rem;
+    font-weight: bold;
+}
