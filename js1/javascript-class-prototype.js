@@ -126,3 +126,61 @@ console.log(person1.plannet, "static"); // gives undefined
 
 Person.isPerson(); // direct call without object
 console.log(Person.plannet);
+
+
+// protected properties
+
+class Parent {
+  #secret = "I am hidden";
+
+  getSecret() {
+    return this.#secret; // Works: accessed inside the defining class
+  }
+}
+
+class Child extends Parent {
+  tryToAccess() {
+    // SyntaxError: Private field '#secret' must be declared in an enclosing class
+    return this.#secret; 
+  }
+}
+
+const child = new Child();
+console.log(child.getSecret()); // "I am hidden" (Called via parent's public method)
+child.tryToAccess(); // Crashes
+
+
+// protected but useless 
+
+class Machine {
+  constructor() {
+    // The underscore says "treat this as protected"
+    this._powerLevel = 100; 
+  }
+}
+
+class Computer extends Machine {
+  usePower() {
+    this._powerLevel -= 10; // Subclass uses it (Intended behavior)
+  }
+}
+
+const mac = new Computer();
+mac._powerLevel = 5000; // Works, but breaks the rule (Nothing stops you)
+
+
+
+// In TypeScript (compile time in runtime its like upper one )
+class Parent {
+  protected familyName = "Smith";
+}
+
+class BankAccount {
+  private balance = 1000;
+}
+
+
+
+
+
+
