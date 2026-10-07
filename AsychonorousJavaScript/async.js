@@ -144,6 +144,39 @@ setTimeout(() => {
 }, 1000);
 
 
+
+function changeTextPromise(element, text, color, time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (element) {
+                element.style.color = color;
+                element.textContent = text;
+                resolve("Success"); // Triggers the next .then()
+            } else {
+                reject("Element not found"); // Skips to the .catch()
+            }
+        }, time);
+    });
+}
+
+changeTextPromise(h1, "new h1", "red", 1000)
+    .then(() => changeTextPromise(h2, "new h2", "blue", 1000))
+    .then(() => changeTextPromise(h3, "new h3", "green", 1000))
+    .then(() => changeTextPromise(h4, "new h4", "pink", 1000))
+    .then(() => changeTextPromise(h5, "new h5", "gold", 1000))
+    .then(() => changeTextPromise(h6, "new h6", "purple", 1000))
+    .then(() => changeTextPromise(h7, "new h7", "yellow", 1000))
+    .then(() => changeTextPromise(h8, "new h8", "orange", 1000))
+    .then(() => changeTextPromise(h9, "new h9", "violet", 1000))
+    .then(() => changeTextPromise(h10, "new h10", "lightgreen", 1000))
+    .catch((error) => {
+        // If ANY of the elements above are missing, the chain stops immediately 
+        // and jumps right down to here.
+        console.log("Failure:", error);
+    });
+
+
+
 function changetext(element, text, color, time, onsuccess, onFaluiure) {
     setTimeout(() => {
         if (element) {
