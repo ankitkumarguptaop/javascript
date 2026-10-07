@@ -144,7 +144,7 @@ setTimeout(() => {
 }, 1000);
 
 
-
+// with promise it make it flat
 function changeTextPromise(element, text, color, time) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
