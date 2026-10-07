@@ -1790,3 +1790,54 @@ var2();
 
 }
 
+
+{
+ let objs= {
+  "name" : "ankit",
+   userinfo:()=>{
+    console.log(this.name);
+   }
+ }
+
+ objs.userinfo() //-----> gives you undefined cause of in arrow function this is binded to one step above 
+ // so question is can we use call ,apply , bind for this ?
+ // *********** no we cannot bind this for arrow functions **********
+
+
+
+ //Option 1: Concise Method Syntax (Recommended)
+
+JavaScript
+let objs = {
+  name: "ankit",
+  userinfo() {
+    console.log(this.name); 
+  }
+}
+
+objs.userinfo(); // Logs "ankit"
+
+
+
+ //Option 2: Standard Function Expression
+
+JavaScript
+let objs = {
+  name: "ankit",
+  userinfo: function() {
+    console.log(this.name); 
+  }
+}
+
+objs.userinfo(); // Logs "ankit"
+}
+
+
+
+
+
+
+
+
+
+
